@@ -118,8 +118,6 @@ Ahora tienes una aplicación Express.js básica que responde a las solicitudes G
 
 Para profundizar en el tema, te recomiendo revisar la [documentación oficial de Express.js](http://expressjs.com/es/). Allí encontrarás guías detalladas, ejemplos de código y una amplia gama de recursos que te ayudarán a aprovechar al máximo este marco de trabajo.
 
----
-
 ## Configuración de un proyecto (usando 'express-generator')
 
 ### Introducción
