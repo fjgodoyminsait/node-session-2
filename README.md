@@ -11,6 +11,7 @@
     - [Crear una Aplicación Express](#crear-una-aplicación-express)
     - [Definir Rutas](#definir-rutas)
     - [Iniciar el Servidor](#iniciar-el-servidor)
+    - [Ejecutar la app en local](#ejecutar-la-app-en-local)
     - [Conclusión](#conclusión)
   - [Configuración de un proyecto (usando 'express-generator')](#configuración-de-un-proyecto-usando-express-generator)
     - [Introducción](#introducción)
@@ -111,6 +112,16 @@ app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
 ```
+
+### Ejecutar la app en local
+
+Ejecuta la aplicación con el siguiente comando:
+
+```bash
+node app.js
+```
+
+Luego, carga <http://localhost:3000/> en un navegador para ver la salida.
 
 ### Conclusión
 
