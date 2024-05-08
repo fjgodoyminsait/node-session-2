@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Module dependencies.
+ * Dependencias del módulo.
  */
 
 var app = require('../app');
@@ -9,20 +9,23 @@ var debug = require('debug')('02-express-generator:server');
 var http = require('http');
 
 /**
- * Get port from environment and store in Express.
+ * Obtiene el puerto del entorno y lo almacena en Express.
+ * Si no se especifica un puerto en las variables de entorno, se usará el puerto 3000.
  */
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Crea el servidor HTTP.
+ * Utiliza la aplicación Express 'app' como manejador de solicitudes.
  */
 
 var server = http.createServer(app);
 
 /**
- * Listen on provided port, on all network interfaces.
+ * El servidor escucha en el puerto proporcionado, en todas las interfaces de red.
+ * También se definen manejadores para los eventos 'error' y 'listening' del servidor.
  */
 
 server.listen(port);
@@ -30,19 +33,20 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
- * Normalize a port into a number, string, or false.
+ * Normaliza un puerto en un número, cadena, o falso.
+ * Si el puerto es una cadena no numérica, se devuelve tal cual.
+ * Si el puerto es un número mayor o igual a 0, se devuelve.
+ * En cualquier otro caso, se devuelve falso.
  */
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
   if (isNaN(port)) {
-    // named pipe
     return val;
   }
 
   if (port >= 0) {
-    // port number
     return port;
   }
 
@@ -50,7 +54,8 @@ function normalizePort(val) {
 }
 
 /**
- * Event listener for HTTP server "error" event.
+ * Manejador de eventos para el evento "error" del servidor HTTP.
+ * Si el error es durante la escucha, se lanza un error con mensajes amigables para errores específicos.
  */
 
 function onError(error) {
@@ -60,16 +65,16 @@ function onError(error) {
 
   var bind = typeof port === 'string'
     ? 'Pipe ' + port
-    : 'Port ' + port;
+    : 'Puerto ' + port;
 
-  // handle specific listen errors with friendly messages
+  // maneja errores específicos de escucha con mensajes amigables
   switch (error.code) {
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+      console.error(bind + ' requiere privilegios elevados');
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+      console.error(bind + ' ya está en uso');
       process.exit(1);
       break;
     default:
@@ -78,13 +83,14 @@ function onError(error) {
 }
 
 /**
- * Event listener for HTTP server "listening" event.
+ * Manejador de eventos para el evento "listening" del servidor HTTP.
+ * Se utiliza para registrar que el servidor está escuchando en un puerto o tubería específica.
  */
 
 function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+    : 'puerto ' + addr.port;
+  debug('Escuchando en ' + bind);
 }
