@@ -198,6 +198,8 @@ Para obtener más información sobre el generador de Express.js y sus opciones d
 
 ## Creación de Rutas y Middlewares
 
+![Esquema de ruta y middlewares](/assets/images/Auth-Middleware.jpg)
+
 ### Introducción
 
 En esta sesión, exploraremos cómo crear rutas y middlewares en Express.js. Las rutas son fundamentales para definir cómo la aplicación responderá a las solicitudes HTTP, mientras que los middlewares permiten ejecutar código en el ciclo de solicitud/respuesta de la aplicación, como la autenticación, el registro de logs, o la manipulación de datos de la solicitud.
@@ -271,6 +273,8 @@ Las rutas y los middlewares son componentes fundamentales en Express.js que perm
 Para profundizar en el tema, te recomiendo revisar la [documentación oficial de Express.js](http://expressjs.com/es/), donde encontrarás guías detalladas, ejemplos de código y una amplia gama de recursos que te ayudarán a aprovechar al máximo estas características de Express.js.
 
 ## Configuración del CORS
+
+![Esquema de problema de CORS](/assets/images/cors.bmp)
 
 ### Introducción
 
